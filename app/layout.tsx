@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import ThemeToggleButton from "./components/ThemeToggleButton/ThemeToggleButton";
+import { Toaster } from "sonner";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,7 +28,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <div className="header">
+          <header>
+            <h3>Patients Data</h3>
+            <ThemeToggleButton />
+          </header>
+        </div>
         {children}
+        <Toaster />
       </body>
     </html>
   );

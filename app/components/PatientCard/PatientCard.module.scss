@@ -1,0 +1,100 @@
+.avatarImage {
+  border-radius: 50%;
+}
+.PatientCardContainer {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+  cursor: pointer;
+
+  .titles {
+    display: flex;
+    flex-direction: column;
+
+    .name {
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    .link {
+      color: rgb(148, 148, 160);
+      font-size: 0.8rem;
+      text-decoration: none;
+    }
+  }
+
+  .avatarContainer {
+    display: flex;
+    justify-content: center;
+  }
+
+  .editButton {
+    position: absolute;
+    top: 16px;
+    transform: translateY(-50%);
+    right: 54px;
+    background-color: var(--background);
+    border: none;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+
+    svg {
+      color: var(--foreground);
+    }
+
+    &:hover {
+      background-color: var(--foreground);
+      svg {
+        color: var(--background);
+      }
+    }
+  }
+}
+
+.compactCard {
+  height: 65px;
+  min-width: 320px;
+  // max-width: 350px;
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    .editButton {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .avatarContainer {
+    align-items: center;
+  }
+  .titles {
+    justify-content: space-between;
+  }
+}
+
+.extendedCard {
+  height: auto;
+  min-width: 100%;
+  &:hover {
+    .editButton {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .avatarContainer {
+    padding: 20px;
+  }
+  .titles {
+    gap: 10px;
+  }
+}

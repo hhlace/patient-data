@@ -1,0 +1,125 @@
+.editPatientModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 860px;
+  height: 100%;
+  .title {
+    margin-top: 12px;
+    margin-bottom: 24px;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    .inputsAndAvatar {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      .inputsContainer {
+        width: 60%;
+        input {
+          width: 100%;
+          padding: 10px;
+          margin: 10px 0;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          font-size: 1rem;
+        }
+      }
+      .avatarEdit {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 30%;
+        .avatarContainer {
+          position: relative;
+          img {
+            object-fit: cover;
+            border-radius: 50%;
+          }
+          &:hover .editButton {
+            opacity: 30%;
+            transform: translateY(0);
+          }
+        }
+        .editButton {
+          position: absolute;
+          top: 0px;
+          right: auto;
+          width: 150px;
+          height: 150px;
+          background-color: black;
+          border: none;
+          border-radius: 50%;
+          padding: 5px;
+          cursor: pointer;
+          transition: opacity 0.3s ease, transform 0.3s ease;
+          opacity: 0;
+          transform: translateY(-10px);
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+          svg {
+            color: var(--foreground);
+          }
+          &:hover {
+            // background-color: var(--foreground);
+            svg {
+              color: var(--background);
+            }
+          }
+        }
+      }
+    }
+    .description {
+      width: 100%;
+      textarea {
+        min-width: 100%;
+        resize: vertical;
+        min-height: 168px;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1rem;
+      }
+    }
+    .editPatientActionButtons {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      gap: 10px;
+      button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+      .saveButton {
+        background: rgb(114, 207, 118);
+      }
+    }
+  }
+  .closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  .error {
+    width: 100%;
+    color: red;
+    font-size: 0.875rem;
+    margin-top: 5px;
+  }
+}
