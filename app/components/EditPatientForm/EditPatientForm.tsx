@@ -71,6 +71,7 @@ const EditPatientForm: React.FC<EditPatientFormProps> = ({
   };
 
   const handleAvatarChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
     if (e.target.files && e.target.files[0]) {
       const file = e.target.files[0];
       const reader = new FileReader();
@@ -144,16 +145,20 @@ const EditPatientForm: React.FC<EditPatientFormProps> = ({
                 extended
               />
               <div className={s.editButton}>
-                <button>
-                  <input
-                    type="file"
-                    accept="image/png"
-                    onChange={handleAvatarChange}
-                    // style={{ display: "none" }}
-                    onBlur={handleBlur}
-                  />
-                  <div>Edit</div>
+                <button
+                  type="button"
+                  onClick={() => document.getElementById("fileInput")?.click()}
+                >
+                  Edit
                 </button>
+                <input
+                  id="fileInput"
+                  type="file"
+                  accept="image/png, image/jpeg"
+                  onChange={handleAvatarChange}
+                  style={{ display: "none" }} // Hide the file input element
+                  onBlur={handleBlur}
+                />
                 {errors.avatar && (
                   <span className={s.error}>{errors.avatar}</span>
                 )}
