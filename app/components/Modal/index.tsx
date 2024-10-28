@@ -35,7 +35,6 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [onClose]);
 
-  // Return null if modal is not open
   if (!isOpen) return null;
 
   return (
